@@ -15,7 +15,7 @@ public class TableDAO {
         return em.find(Table.class, id);
     }
 
-    public List getAll(){
+    public List<Table> getAll(){
         return em.createQuery("SELECT e FROM Table e").getResultList();
     }
 }
