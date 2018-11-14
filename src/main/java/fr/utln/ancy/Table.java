@@ -22,4 +22,11 @@ public class Table {
         this.matériel = matériel;
     }
 
+    public long getTableId() {
+        return tableId;
+    }
+
+    public void setTableId(long tableId) {
+        this.tableId = tableId;
+    }
 }

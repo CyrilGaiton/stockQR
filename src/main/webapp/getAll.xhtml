@@ -4,16 +4,17 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
 
-    <h:body>
+<h:body>
 
-        <p:dataList value="#{TestBeackingBean.TableGetAll}" var="table">
-            <f:facet name="header">
-                Tables
-            </f:facet>
+    <p:dataList value="#{TestBeackingBean.TableGetAll}" var="table">
+        <f:facet name="header">
+            Tables
+        </f:facet>
+        #{table.tableId}, #{yable.materiel}
+    </p:dataList>
 
-        </p:dataList>
 
-    </h:body>
+</h:body>
 
 
 </html>
