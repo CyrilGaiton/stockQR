@@ -1,20 +1,21 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      template="templates/main_template.xhtml">
 
 <h:body>
 
-    <p:dataList value="#{TestBeackingBean.TableGetAll}" var="table">
+    <p:dataList value="#{testBackingBean.TableGetAll()}" var="table">
         <f:facet name="header">
             Tables
         </f:facet>
-        #{table.tableId}, #{yable.materiel}
+        Id: #{table.tableId}, Matériel: #{table.materiel}, Bon Etat: #{table.bonEtat}
     </p:dataList>
 
 
 </h:body>
 
 
-</html>
+</ui:composition>

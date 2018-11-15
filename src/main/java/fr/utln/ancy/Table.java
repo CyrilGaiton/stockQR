@@ -11,6 +11,7 @@ public class Table {
     @GeneratedValue
     private long tableId;
     private String matériel;
+    private boolean bonEtat;
 
     public Table(){}
 
@@ -28,5 +29,13 @@ public class Table {
 
     public void setTableId(long tableId) {
         this.tableId = tableId;
+    }
+
+    public boolean isBonEtat() {
+        return bonEtat;
+    }
+
+    public void setBonEtat(boolean bonEtat) {
+        this.bonEtat = bonEtat;
     }
 }

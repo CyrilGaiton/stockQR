@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="templates/main_template.xhtml">
+
+    <h:body>
+
+        <p:outputLabel value="#{testBackingBean.TableTauxBonEtat()}" var="table">
+            <f:facet name="header">
+                Table bon etat
+            </f:facet>
+            Taux de tables en bon état: #{table}%
+        </p:outputLabel>
+
+        <p:commandButton ajax="false" value="Affiche tout" action="getAll.jsf?faces-redirect=true"/>
+
+    </h:body>
+
+</ui:composition>
