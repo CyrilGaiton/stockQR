@@ -5,13 +5,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Dependent
 public class TableDAO {
 
     @PersistenceContext
     private EntityManager em;
-
-    public TableDAO(){}
 
     public Table getById(int id){
         return em.find(Table.class, id);
