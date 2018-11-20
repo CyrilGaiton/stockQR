@@ -9,6 +9,8 @@ public class TableDAO {
     @PersistenceContext(unitName = "BDR")
     private EntityManager em;
 
+    public TableDAO(){}
+
     public Table getById(int id){
         return em.find(Table.class, id);
     }

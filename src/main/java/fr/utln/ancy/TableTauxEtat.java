@@ -7,7 +7,7 @@ import java.util.List;
 @Stateless
 public class TableTauxEtat {
     @Inject
-    TableDAO tableDAO;
+    private TableDAO tableDAO;
 
     public List<Table> getAll(){
         return tableDAO.getAll();

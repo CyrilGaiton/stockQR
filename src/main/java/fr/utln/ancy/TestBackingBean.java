@@ -11,13 +11,22 @@ import java.util.List;
 @SessionScoped
 public class TestBackingBean {
     @Inject
-    TableTauxEtat tableTauxEtat;
+    private TableTauxEtat tableTauxEtat;
 
-    public List<Table> TableGetAll(){
+    @Inject
+    private ChaiseTauxEtat chaiseTauxEtat;
+
+    public List<Table> tableGetAll(){
         return tableTauxEtat.getAll();
     }
 
-    public Table TableGetId(int id){ return tableTauxEtat.getById(id); }
+    public Table tableGetId(int id){ return tableTauxEtat.getById(id); }
 
-    public int TableTauxBonEtat(){ return tableTauxEtat.tauxBonEtat(); }
+    public int tableTauxBonEtat(){ return tableTauxEtat.tauxBonEtat(); }
+
+    public List<Chaise> chaiseGetAll(){return chaiseTauxEtat.getAll();}
+
+    public Chaise chaiseGetId(int id) { return chaiseTauxEtat.getById(id); }
+
+    public int chaiseTauxBonEtat(){ return chaiseTauxEtat.tauxBonEtat(); }
 }
