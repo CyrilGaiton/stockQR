@@ -10,6 +10,8 @@ public class TableDAO {
     @PersistenceContext
     private EntityManager em;
 
+    public TableDAO(){}
+
     public Table getById(int id){
         return em.find(Table.class, id);
     }
