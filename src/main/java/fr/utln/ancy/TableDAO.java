@@ -1,15 +1,15 @@
 package fr.utln.ancy;
 
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+@Named
 public class TableDAO {
 
     @PersistenceContext
     private EntityManager em;
-
-    public TableDAO(){}
 
     public Table getById(int id){
         return em.find(Table.class, id);
