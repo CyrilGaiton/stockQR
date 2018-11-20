@@ -1,9 +1,11 @@
 package fr.utln.ancy;
 
+import javax.enterprise.context.Dependent;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+@Dependent
 public class TableDAO {
 
     @PersistenceContext

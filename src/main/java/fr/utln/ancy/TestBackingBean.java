@@ -8,7 +8,6 @@ import javax.inject.Named;
 import java.util.List;
 
 @ManagedBean
-@Named
 @SessionScoped
 public class TestBackingBean {
     @Inject

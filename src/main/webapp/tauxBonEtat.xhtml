@@ -5,7 +5,7 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 template="templates/main_template.xhtml">
 
-    <h:body>
+    <ui:define name="bodyContent">
 
         <p:outputLabel value="#{testBackingBean.TableTauxBonEtat()}" var="table">
             <f:facet name="header">
@@ -14,8 +14,8 @@
             Taux de tables en bon état: #{table}%
         </p:outputLabel>
 
-        <p:commandButton ajax="false" value="Affiche tout" action="getAll.jsf?faces-redirect=true"/>
+        <p:commandButton ajax="false" value="GetAll" action="getAll.jsf?faces-redirect=true"/>
 
-    </h:body>
+    </ui:define>
 
 </ui:composition>
