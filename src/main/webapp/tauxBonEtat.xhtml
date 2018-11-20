@@ -7,11 +7,11 @@
 
     <ui:define name="bodyContent">
 
-        <p:outputLabel value="#{testBackingBean.TableTauxBonEtat()}" var="table">
+        <p:outputLabel value="#{testBackingBean.bureauTauxBonEtat()}" var="bureau">
             <f:facet name="header">
                 Table bon etat
             </f:facet>
-            Taux de tables en bon état: #{table}%
+            Taux de bureaus en bon état: #{bureau}%
         </p:outputLabel>
 
         <p:commandButton ajax="false" value="GetAll" action="getAll.jsf?faces-redirect=true"/>

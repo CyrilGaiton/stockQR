@@ -4,25 +4,24 @@ package fr.utln.ancy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.util.List;
 
 @ManagedBean
 @SessionScoped
 public class TestBackingBean {
     @Inject
-    private TableTauxEtat tableTauxEtat;
+    private BureauTauxEtat bureauTauxEtat;
 
     @Inject
     private ChaiseTauxEtat chaiseTauxEtat;
 
-    public List<Table> tableGetAll(){
-        return tableTauxEtat.getAll();
+    public List<Bureau> bureauGetAll(){
+        return bureauTauxEtat.getAll();
     }
 
-    public Table tableGetId(int id){ return tableTauxEtat.getById(id); }
+    public Bureau bureauGetId(int id){ return bureauTauxEtat.getById(id); }
 
-    public int tableTauxBonEtat(){ return tableTauxEtat.tauxBonEtat(); }
+    public int bureauTauxBonEtat(){ return bureauTauxEtat.tauxBonEtat(); }
 
     public List<Chaise> chaiseGetAll(){return chaiseTauxEtat.getAll();}
 

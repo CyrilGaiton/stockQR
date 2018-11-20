@@ -5,15 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Table {
+public class Bureau {
 
     @Id
     @GeneratedValue
-    private long tableId;
+    private long bureauId;
     private String matériel;
     private boolean bonEtat;
 
-    public Table(){}
+    public Bureau(){}
 
     public String getMatériel() {
         return matériel;
@@ -23,12 +23,12 @@ public class Table {
         this.matériel = matériel;
     }
 
-    public long getTableId() {
-        return tableId;
+    public long getBureauId() {
+        return bureauId;
     }
 
-    public void setTableId(long tableId) {
-        this.tableId = tableId;
+    public void setBureauId(long bureauId) {
+        this.bureauId = bureauId;
     }
 
     public boolean isBonEtat() {
