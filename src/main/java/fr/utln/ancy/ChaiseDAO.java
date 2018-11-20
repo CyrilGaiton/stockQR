@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ChaiseDAO {
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "BDR")
     private EntityManager em;
 
     public ChaiseDAO(){}

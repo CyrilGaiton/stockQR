@@ -1,13 +1,12 @@
 package fr.utln.ancy;
 
-import javax.enterprise.context.Dependent;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
 public class TableDAO {
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "BDR")
     private EntityManager em;
 
     public Table getById(int id){
