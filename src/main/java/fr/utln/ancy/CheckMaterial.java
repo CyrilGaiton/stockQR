@@ -16,6 +16,4 @@ public @interface CheckMaterial {
     String message() default "Le materiel doit être de type enum Materiel (bois, acier, platique, ...)";
     String[] groups() default {};
     String bankName() default "";
-
-    MaterialType value();
 }

@@ -15,18 +15,18 @@ public class Bureau {
     private long bureauId;
 
     @NotBlank
-    private String matériel;
+    private MaterialType matériel;
 
     @NotNull
     private boolean bonEtat;
 
     public Bureau(){}
 
-    public String getMatériel() {
+    public MaterialType getMatériel() {
         return matériel;
     }
 
-    public void setMatériel(String matériel) {
+    public void setMatériel(MaterialType matériel) {
         this.matériel = matériel;
     }
 
