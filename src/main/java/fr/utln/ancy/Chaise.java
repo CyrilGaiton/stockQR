@@ -1,10 +1,7 @@
 package fr.utln.ancy;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -16,6 +13,7 @@ public class Chaise {
     @Min(0)
     private long chaiseId;
     @CheckMaterial
+    @Enumerated(EnumType.STRING)
     private MaterialType material;
     @NotNull
     private boolean bonEtat;

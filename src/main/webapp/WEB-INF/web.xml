@@ -9,7 +9,7 @@
     </context-param>
 
     <welcome-file-list>
-        <welcome-file>faces/getAll.xhtml</welcome-file>
+        <welcome-file>getAll.xhtml</welcome-file>
     </welcome-file-list>
 
     <servlet>

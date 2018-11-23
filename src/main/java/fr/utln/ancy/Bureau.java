@@ -1,8 +1,6 @@
 package fr.utln.ancy;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -17,6 +15,7 @@ public class Bureau {
     private long bureauId;
 
     @CheckMaterial
+    @Enumerated(EnumType.STRING)
     private MaterialType material;
 
     @NotNull

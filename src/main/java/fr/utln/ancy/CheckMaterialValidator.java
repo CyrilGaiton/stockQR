@@ -12,6 +12,6 @@ public class CheckMaterialValidator implements ConstraintValidator<CheckMaterial
     @Override
     public boolean isValid(MaterialType materialType, ConstraintValidatorContext constraintValidatorContext) {
 
-        return (materialType == null);
+        return (materialType != null);
     }
 }
