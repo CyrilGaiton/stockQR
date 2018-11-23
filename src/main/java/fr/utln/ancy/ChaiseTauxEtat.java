@@ -24,4 +24,8 @@ public class ChaiseTauxEtat {
         }
         return ((count/chaises.size())*100);
     }
+
+    public void createChaise(MaterialType materialType, boolean bonEtat){
+        chaiseDAO.createChaise(materialType, bonEtat);
+    }
 }

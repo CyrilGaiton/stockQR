@@ -15,6 +15,6 @@ public @interface CheckMaterial {
 
     String message() default "Le materiel doit être de type enum MaterialType (bois, acier, plastique, ...)";
     Class<?>[] groups() default {};
-    Class<? extends Payload>[] payload() default { };
+    Class<? extends Payload>[] payload() default {};
 
 }

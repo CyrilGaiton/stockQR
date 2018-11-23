@@ -25,4 +25,8 @@ public class BureauTauxEtat {
         }
         return ((count/ bureaus.size())*100);
     }
+
+    public void createBureau(MaterialType materialType, boolean bonEtat){
+        bureauDAO.createBureau(materialType, bonEtat);
+    }
 }
