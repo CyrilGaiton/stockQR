@@ -19,4 +19,11 @@ public class ChaiseDAO {
         return em.createQuery("SELECT c FROM Chaise c").getResultList();
     }
 
+    public void createChaise(MaterialType materialType, boolean bonEtat){
+        Chaise chaise = new Chaise();
+        chaise.setMaterial(materialType);
+        chaise.setBonEtat(bonEtat);
+        em.persist(chaise);
+    }
+
 }

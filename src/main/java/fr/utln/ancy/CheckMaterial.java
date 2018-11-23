@@ -13,7 +13,8 @@ import java.lang.reflect.Field;
 public @interface CheckMaterial {
 
 
-    String message() default "Le materiel doit être de type enum Materiel (bois, acier, platique, ...)";
+    String message() default "Le materiel doit être de type enum MaterialType (bois, acier, plastique, ...)";
     String[] groups() default {};
     String bankName() default "";
+
 }

@@ -12,8 +12,8 @@ public class TestBackingBean {
     @Inject
     private BureauTauxEtat bureauTauxEtat;
 
-    @Inject
-    private ChaiseTauxEtat chaiseTauxEtat;
+//    @Inject
+//    private ChaiseTauxEtat chaiseTauxEtat;
 
     public List<Bureau> bureauGetAll(){
         return bureauTauxEtat.getAll();
@@ -23,9 +23,9 @@ public class TestBackingBean {
 
     public int bureauTauxBonEtat(){ return bureauTauxEtat.tauxBonEtat(); }
 
-    public List<Chaise> chaiseGetAll(){return chaiseTauxEtat.getAll();}
-
-    public Chaise chaiseGetId(int id) { return chaiseTauxEtat.getById(id); }
-
-    public int chaiseTauxBonEtat(){ return chaiseTauxEtat.tauxBonEtat(); }
+//    public List<Chaise> chaiseGetAll(){return chaiseTauxEtat.getAll();}
+//
+//    public Chaise chaiseGetId(int id) { return chaiseTauxEtat.getById(id); }
+//
+//    public int chaiseTauxBonEtat(){ return chaiseTauxEtat.tauxBonEtat(); }
 }

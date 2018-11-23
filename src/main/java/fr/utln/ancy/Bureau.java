@@ -3,6 +3,7 @@ package fr.utln.ancy;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -12,30 +13,27 @@ public class Bureau {
     @Id
     @GeneratedValue
     @NotNull
+    @Min(0)
     private long bureauId;
 
-    @NotBlank
-    private MaterialType matériel;
+    @CheckMaterial
+    private MaterialType material;
 
     @NotNull
     private boolean bonEtat;
 
     public Bureau(){}
 
-    public MaterialType getMatériel() {
-        return matériel;
+    public MaterialType getMaterial() {
+        return material;
     }
 
-    public void setMatériel(MaterialType matériel) {
-        this.matériel = matériel;
+    public void setMaterial(MaterialType material) {
+        this.material = material;
     }
 
     public long getBureauId() {
         return bureauId;
-    }
-
-    public void setBureauId(long bureauId) {
-        this.bureauId = bureauId;
     }
 
     public boolean isBonEtat() {

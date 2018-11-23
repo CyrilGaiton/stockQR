@@ -18,4 +18,11 @@ public class BureauDAO {
     public List<Bureau> getAll(){
         return em.createQuery("SELECT e FROM Bureau e").getResultList();
     }
+
+    public void createBureau(MaterialType materialType, boolean bonEtat){
+        Bureau bureau = new Bureau();
+        bureau.setMaterial(materialType);
+        bureau.setBonEtat(bonEtat);
+        em.persist(bureau);
+    }
 }
