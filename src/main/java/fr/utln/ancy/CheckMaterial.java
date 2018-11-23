@@ -1,6 +1,7 @@
 package fr.utln.ancy;
 
 import javax.validation.Constraint;
+import javax.validation.Payload;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -14,7 +15,7 @@ public @interface CheckMaterial {
 
 
     String message() default "Le materiel doit être de type enum MaterialType (bois, acier, plastique, ...)";
-    String[] groups() default {};
-    String bankName() default "";
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
 
 }

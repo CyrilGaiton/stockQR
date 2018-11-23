@@ -16,7 +16,7 @@ public class Bureau {
     @Min(0)
     private long bureauId;
 
-    @CheckMaterial
+//    @CheckMaterial
     private MaterialType material;
 
     @NotNull

@@ -15,7 +15,7 @@ public class Chaise {
     @NotNull
     @Min(0)
     private long chaiseId;
-    @CheckMaterial
+//    @CheckMaterial
     private MaterialType material;
     @NotNull
     private boolean bonEtat;
