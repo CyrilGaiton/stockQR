@@ -29,15 +29,18 @@ public class TestBackingBean {
         return "getAll";
     }
 
-    public int bureauTauxBonEtat(){ return bureauTauxEtat.tauxBonEtat(); }
+    public float bureauTauxBonEtat(){ return bureauTauxEtat.tauxBonEtat(); }
 
     public List<Chaise> chaiseGetAll(){return chaiseTauxEtat.getAll();}
 
     public Chaise chaiseGetId(int id) { return chaiseTauxEtat.getById(id); }
 
-    public void chaiseCreate(){ chaiseTauxEtat.createChaise(materialType, bonEtat); }
+    public String chaiseCreate(){
+        chaiseTauxEtat.createChaise(materialType, bonEtat);
+        return "getAll";
+    }
 
-    public int chaiseTauxBonEtat(){ return chaiseTauxEtat.tauxBonEtat(); }
+    public float chaiseTauxBonEtat(){ return chaiseTauxEtat.tauxBonEtat(); }
 
     public MaterialType getMaterialType() {
         return materialType;

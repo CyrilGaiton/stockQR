@@ -7,12 +7,22 @@
 
 <ui:define name="bodyContent">
 
-    <p:dataList value="#{testBackingBean.bureauGetAll()}" var="bureau">
-        <f:facet name="header">
-            Bureaux
-        </f:facet>
-        Id: #{bureau.bureauId}, Matériel: #{bureau.material}, Bon Etat: #{bureau.bonEtat}
-    </p:dataList>
+    <h:form>
+        <p:panelGrid columns="2" columnClasses="Bureau, Chaise">
+            <p:dataList value="#{testBackingBean.bureauGetAll()}" var="bureau">
+                <f:facet name="header">
+                    Bureaux
+                </f:facet>
+                Id: #{bureau.bureauId}, Matériel: #{bureau.material}, Bon Etat: #{bureau.bonEtat}
+            </p:dataList>
+            <p:dataList value="#{testBackingBean.chaiseGetAll()}" var="chaise">
+                <f:facet name="header">
+                    Chaises
+                </f:facet>
+                Id: #{chaise.chaiseId}, Matériel: #{chaise.material}, Bon Etat: #{chaise.bonEtat}
+            </p:dataList>
+        </p:panelGrid>
+    </h:form>
 
 
 </ui:define>

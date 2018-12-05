@@ -14,9 +14,9 @@ public class ChaiseTauxEtat {
 
     public List<Chaise> getAll(){ return chaiseDAO.getAll(); }
 
-    public int tauxBonEtat(){
+    public float tauxBonEtat(){
         List<Chaise> chaises = getAll();
-        int count = 0;
+        float count = 0;
         for (Chaise chaise:chaises) {
             if (chaise.isBonEtat()){
                 count++;

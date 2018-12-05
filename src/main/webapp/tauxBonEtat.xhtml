@@ -8,13 +8,20 @@
     <ui:define name="bodyContent">
 
         <h:form>
-            <p:outputLabel value="#{testBackingBean.bureauTauxBonEtat()}" var="bureau">
+            <p:outputLabel>
                 <f:facet name="header">
-                    Table bon etat
+                    Bureaux bon etat
                 </f:facet>
-                Taux de bureaus en bon état: #{bureau}%
+                Taux de bureaux en bon état: #{testBackingBean.bureauTauxBonEtat()}%
             </p:outputLabel>
-
+            <br/>
+            <p:outputLabel>
+                <f:facet name="header">
+                    Chaise bon etat
+                </f:facet>
+                Taux de chaises en bon état: #{testBackingBean.chaiseTauxBonEtat()}%
+            </p:outputLabel>
+            <br/>
             <p:commandButton ajax="false" value="GetAll" action="getAll.jsf?faces-redirect=true"/>
 
         </h:form>

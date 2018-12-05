@@ -15,15 +15,15 @@ public class BureauTauxEtat {
 
     public Bureau getById(int id){ return bureauDAO.getById(id); }
 
-    public int tauxBonEtat(){
-        List<Bureau> bureaus = getAll();
-        int count = 0;
-        for (Bureau bureau : bureaus) {
+    public float tauxBonEtat(){
+        List<Bureau> bureaux = getAll();
+        float count = 0;
+        for (Bureau bureau : bureaux) {
             if (bureau.isBonEtat()){
                 count++;
             }
         }
-        return ((count/ bureaus.size())*100);
+        return ((count/ bureaux.size())*100);
     }
 
     public void createBureau(MaterialType materialType, boolean bonEtat){
