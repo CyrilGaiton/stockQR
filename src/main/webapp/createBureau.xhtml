@@ -8,16 +8,19 @@
     <ui:define name="bodyContent">
 
         <h:form>
-            <p:selectOneListbox value="#{testBackingBean.materialType}" var="type">
-                <f:selectItem itemLabel="Bois" itemValue= "#{type.BOIS}" />
-                <f:selectItem itemLabel="Acier" itemValue="#{type.ACIER}" />
-                <f:selectItem itemLabel="Plastique" itemValue="#{type.PLASTIQUE}" />
-            </p:selectOneListbox>
-            <br/>
-            <p:selectBooleanButton value="#{testBackingBean.bonEtat}" onLabel="No" offLabel="Yes" style="width: 60px"/>
-            <br/>
-            <br/>
+            <p:panelGrid columns="2" columnClasses="label,  values" style="margin-bottom: auto">
+                <p:outputLabel for="list" value="Materiel: " />
+                <p:selectOneRadio id="list" value="#{testBackingBean.materialType}" var="type">
+                    <f:selectItem itemLabel="Bois" itemValue= "BOIS" />
+                    <f:selectItem itemLabel="Acier" itemValue="ACIER" />
+                    <f:selectItem itemLabel="Plastique" itemValue="PLASTIQUE" />
+                </p:selectOneRadio>
+                <p:outputLabel for="etat" value="Bon Etat: "/>
+                <p:selectBooleanButton id="etat" value="#{testBackingBean.bonEtat}" onLabel="No" offLabel="Yes" style="width: 60px"/>
+            </p:panelGrid>
+
             <p:commandButton ajax="false" value="Create" action="#{testBackingBean.bureauCreate()}"/>
+
         </h:form>
 
 
