@@ -2,11 +2,11 @@ package fr.utln.ancy;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Entity
-public class Bureau {
+public class Bureau implements Serializable{
 
     @Id
     @GeneratedValue
