@@ -5,7 +5,7 @@
     <servers>
         <server> <id>bintray-cyril-MavenRep</id>
             <username>cyril</username>
-            <password>${env.BINTRAY_API_KEY}</password>
+            <password>${BINTRAY_API_KEY}</password>
         </server>
     </servers>
 
