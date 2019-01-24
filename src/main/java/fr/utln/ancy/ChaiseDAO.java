@@ -33,4 +33,10 @@ public class ChaiseDAO {
         }
     }
 
+    public void updateChaise(long id, MaterialType material, boolean bonEtat){
+        Chaise chaise = getById(id);
+        chaise.setMaterial(material);
+        chaise.setBonEtat(bonEtat);
+        em.merge(chaise);
+    }
 }
