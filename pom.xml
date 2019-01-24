@@ -110,6 +110,7 @@
 					 <version>0.1.54</version>
 				   </dependency>
 				 </dependencies>
+
                 <configuration>
                     <!--&lt;!&ndash; Enable this to push to origin using SSH keys &ndash;&gt;-->
                     <!--<enableSshAgent>true</enableSshAgent>-->
