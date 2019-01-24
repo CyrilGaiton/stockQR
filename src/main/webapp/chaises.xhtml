@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="templates/main_template.xhtml">
+
+    <ui:define name="bodyContent">
+
+        <h:form>
+            <p:panelGrid columns="1" columnClasses="Chaise">
+                <p:dataList value="#{testBackingBean.chaiseGetAll()}" var="chaise">
+                    <f:facet name="header">
+                        Chaises
+                    </f:facet>
+                    Id: #{chaise.chaiseId}, Matériel: #{chaise.material}, Bon Etat: #{chaise.bonEtat}
+                </p:dataList>
+            </p:panelGrid>
+            <br/>
+            <p:commandButton ajax="false" value="Find By Id" action="chaiseFindId.jsf?faces-redirect=true"/>
+            <br/>
+            <p:commandButton ajax="false" value="Add Chaise" action="createChaise.jsf?faces-redirect=true"/>
+            <br/>
+            <p:commandButton ajax="false" value="Delete Chaise" action="deleteChaise.jsf?faces-redirect=true"/>
+        </h:form>
+
+
+    </ui:define>
+
+</ui:composition>

@@ -13,7 +13,7 @@ public class BureauTauxEtat {
         return bureauDAO.getAll();
     }
 
-    public Bureau getById(int id){ return bureauDAO.getById(id); }
+    public Bureau getById(long id){ return bureauDAO.getById(id); }
 
     public float tauxBonEtat(){
         List<Bureau> bureaux = getAll();
@@ -28,5 +28,9 @@ public class BureauTauxEtat {
 
     public void createBureau(MaterialType materialType, boolean bonEtat){
         bureauDAO.createBureau(materialType, bonEtat);
+    }
+
+    public void deleteBureau(long id){
+        bureauDAO.deleteBureau(id);
     }
 }

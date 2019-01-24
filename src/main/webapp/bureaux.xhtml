@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="templates/main_template.xhtml">
+
+    <ui:define name="bodyContent">
+
+        <h:form>
+            <p:panelGrid columns="1" columnClasses="Bureau">
+                <p:dataList value="#{testBackingBean.bureauGetAll()}" var="bureau">
+                    <f:facet name="header">
+                        Bureaux
+                    </f:facet>
+                    Id: #{bureau.bureauId}, Matériel: #{bureau.material}, Bon Etat: #{bureau.bonEtat}
+                </p:dataList>
+            </p:panelGrid>
+            <br/>
+            <p:commandButton ajax="false" value="Find By Id" action="bureauFindId.jsf?faces-redirect=true"/>
+            <br/>
+            <p:commandButton ajax="false" value="Add Bureau" action="createBureau.jsf?faces-redirect=true"/>
+            <br/>
+            <p:commandButton ajax="false" value="Delete Bureau" action="deleteBureau.jsf?faces-redirect=true"/>
+        </h:form>
+
+
+    </ui:define>
+
+</ui:composition>

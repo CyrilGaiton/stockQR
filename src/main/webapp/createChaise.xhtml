@@ -10,7 +10,7 @@
         <h:form>
             <p:panelGrid columns="2" columnClasses="label,  values" style="margin-bottom: auto">
                 <p:outputLabel for="list" value="Materiel: " />
-                <p:selectOneRadio id="list" value="#{testBackingBean.materialType}" var="type">
+                <p:selectOneRadio required="true" id="list" value="#{testBackingBean.materialType}" var="type">
                     <f:selectItem itemLabel="Bois" itemValue= "BOIS" />
                     <f:selectItem itemLabel="Acier" itemValue="ACIER" />
                     <f:selectItem itemLabel="Plastique" itemValue="PLASTIQUE" />

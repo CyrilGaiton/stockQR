@@ -6,39 +6,39 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/bureaux")
+@Path("/chaises")
 @Produces(MediaType.APPLICATION_JSON)
 @Stateless
-public class BureauRest {
+public class ChaiseRest {
 
     @Inject
-    private BureauDAO bureauDAO;
+    private ChaiseDAO chaiseDAO;
 
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Bureau getById(@PathParam("id") long id){
-        return bureauDAO.getById(id);
+    public Chaise getById(@PathParam("id") long id){
+        return chaiseDAO.getById(id);
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Bureau> getAll(){
-        return bureauDAO.getAll();
+    public List<Chaise> getAll(){
+        return chaiseDAO.getAll();
     }
 
     @POST
-    @Path("/addBureau")
+    @Path("/addChaise")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createBureau(Bureau bureau){
-        if (bureau != null){
-            bureauDAO.createBureau(bureau.getMaterial(), bureau.isBonEtat());
+    public void createChaise(Chaise chaise){
+        if (chaise != null){
+            chaiseDAO.createChaise(chaise.getMaterial(), chaise.isBonEtat());
         }
     }
 
     @DELETE
-    @Path("/deleteBureau/{id}")
+    @Path("/deleteChaise/{id}")
     public void deleteBureau(@PathParam("id") long id){
-        bureauDAO.deleteBureau(id);
+        chaiseDAO.deleteChaise(id);
     }
 }
