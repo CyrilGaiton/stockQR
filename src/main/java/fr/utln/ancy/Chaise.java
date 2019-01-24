@@ -12,9 +12,10 @@ public class Chaise {
     @NotNull
     @Min(0)
     private long chaiseId;
-    @CheckMaterial
+
     @Enumerated(EnumType.STRING)
     private MaterialType material;
+
     @NotNull
     private boolean bonEtat;
 

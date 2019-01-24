@@ -9,11 +9,11 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = CheckMaterialValidator.class)
-public @interface CheckMaterial {
+@Constraint(validatedBy = CheckSalleNomValidator.class)
+public @interface CheckSalleNom {
 
 
-    String message() default "Le materiel doit être de type enum MaterialType (bois, acier, plastique, ...)";
+    String message() default "Le nom de la salle doit commencer par une lettre minuscule et finir par des chiffres";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 

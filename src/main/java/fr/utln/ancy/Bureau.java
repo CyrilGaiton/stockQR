@@ -14,7 +14,6 @@ public class Bureau implements Serializable{
     @Min(0)
     private long bureauId;
 
-    @CheckMaterial
     @Enumerated(EnumType.STRING)
     private MaterialType material;
 
