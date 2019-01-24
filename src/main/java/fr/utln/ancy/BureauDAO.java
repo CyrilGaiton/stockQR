@@ -11,7 +11,7 @@ public class BureauDAO {
 
     public BureauDAO(){}
 
-    public Bureau getById(int id){
+    public Bureau getById(long id){
         return em.find(Bureau.class, id);
     }
 
@@ -24,5 +24,12 @@ public class BureauDAO {
         bureau.setMaterial(materialType);
         bureau.setBonEtat(bonEtat);
         em.persist(bureau);
+    }
+
+    public void deleteBureau(long id){
+        Bureau bureau = getById(id);
+        if (bureau != null){
+            em.remove(bureau);
+        }
     }
 }

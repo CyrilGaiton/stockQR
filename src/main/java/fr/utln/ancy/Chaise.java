@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 public class Chaise {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     @Min(0)
     private long chaiseId;

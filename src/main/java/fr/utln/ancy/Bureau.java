@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class Bureau implements Serializable{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     @Min(0)
     private long bureauId;

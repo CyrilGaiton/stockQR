@@ -11,7 +11,7 @@ public class ChaiseDAO {
 
     public ChaiseDAO(){}
 
-    public Chaise getById(int id){
+    public Chaise getById(long id){
         return em.find(Chaise.class, id);
     }
 
@@ -24,6 +24,13 @@ public class ChaiseDAO {
         chaise.setMaterial(materialType);
         chaise.setBonEtat(bonEtat);
         em.persist(chaise);
+    }
+
+    public void deleteChaise(long id){
+        Chaise chaise = getById(id);
+        if (chaise != null){
+            em.remove(chaise);
+        }
     }
 
 }

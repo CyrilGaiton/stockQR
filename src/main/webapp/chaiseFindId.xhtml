@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="templates/main_template.xhtml">
+
+    <ui:define name="bodyContent">
+
+        <h:form>
+            <p:panelGrid columns="2" columnClasses="label,  values" style="margin-bottom: auto">
+                <p:outputLabel for="id" value="Id: "/>
+                <p:inputNumber id="id" value="#{testBackingBean.id}" decimalPlaces="0"/>
+            </p:panelGrid>
+
+            <p:commandButton update="output" value="Find"/>
+            <br/>
+            <p:outputLabel id="output" value="Matériel: #{testBackingBean.chaiseGetId().material} BonEtat: #{testBackingBean.chaiseGetId().bonEtat}"/>
+
+        </h:form>
+
+
+    </ui:define>
+
+
+</ui:composition>

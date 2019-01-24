@@ -15,6 +15,7 @@ public class TestBackingBean {
     @Inject
     private ChaiseTauxEtat chaiseTauxEtat;
 
+    public long id;
     public MaterialType materialType;
     public boolean bonEtat;
 
@@ -22,22 +23,33 @@ public class TestBackingBean {
         return bureauTauxEtat.getAll();
     }
 
-    public Bureau bureauGetId(int id){ return bureauTauxEtat.getById(id); }
+    public Bureau bureauGetId(){ return bureauTauxEtat.getById(id); }
 
     public String bureauCreate(){
         bureauTauxEtat.createBureau(materialType, bonEtat);
-        return "getAll";
+        return "bureaux";
+    }
+
+    public String bureauDelete(){
+        bureauTauxEtat.deleteBureau(id);
+        return "bureaux";
     }
 
     public float bureauTauxBonEtat(){ return bureauTauxEtat.tauxBonEtat(); }
 
+
     public List<Chaise> chaiseGetAll(){return chaiseTauxEtat.getAll();}
 
-    public Chaise chaiseGetId(int id) { return chaiseTauxEtat.getById(id); }
+    public Chaise chaiseGetId() { return chaiseTauxEtat.getById(id); }
 
     public String chaiseCreate(){
         chaiseTauxEtat.createChaise(materialType, bonEtat);
-        return "getAll";
+        return "chaises";
+    }
+
+    public String chaiseDelete(){
+        chaiseTauxEtat.deleteChaise(id);
+        return "chaises";
     }
 
     public float chaiseTauxBonEtat(){ return chaiseTauxEtat.tauxBonEtat(); }
@@ -56,5 +68,13 @@ public class TestBackingBean {
 
     public void setBonEtat(boolean bonEtat) {
         this.bonEtat = bonEtat;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
