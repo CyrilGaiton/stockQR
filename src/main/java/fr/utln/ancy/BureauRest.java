@@ -41,4 +41,13 @@ public class BureauRest {
     public void deleteBureau(@PathParam("id") long id){
         bureauDAO.deleteBureau(id);
     }
+
+    @PUT
+    @Path("/updateBureau/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateBureau(@PathParam("id") long id, Bureau bureau){
+        if (bureau != null){
+            bureauDAO.updateBureau(id,  bureau.getMaterial(), bureau.isBonEtat());
+        }
+    }
 }

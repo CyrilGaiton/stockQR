@@ -38,7 +38,16 @@ public class ChaiseRest {
 
     @DELETE
     @Path("/deleteChaise/{id}")
-    public void deleteBureau(@PathParam("id") long id){
+    public void deleteChaise(@PathParam("id") long id){
         chaiseDAO.deleteChaise(id);
+    }
+
+    @PUT
+    @Path("/updateChaise/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateChaise(@PathParam("id") long id, Chaise chaise){
+        if (chaise != null){
+            chaiseDAO.updateChaise(id,  chaise.getMaterial(), chaise.isBonEtat());
+        }
     }
 }
