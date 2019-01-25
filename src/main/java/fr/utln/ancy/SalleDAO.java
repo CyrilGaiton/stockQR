@@ -37,20 +37,20 @@ public class SalleDAO {
         em.persist(salle);
     }
 
-    public void addBureau(String nom, int idBureau){
-        Salle salle = this.getByNom(nom);
-        Bureau bureau = bureauDAO.getById(idBureau);
-        List<Bureau> bureaux = Arrays.asList(salle.getBureaux());
-        bureaux.add(bureau);
-        salle.setBureaux(bureaux.toArray(new Bureau[bureaux.size()]));
-    }
-
-    public void addChaise(String nom, int idChaise){
-        Salle salle = this.getByNom(nom);
-        Chaise chaise = chaiseDAO.getById(idChaise);
-        List<Chaise> chaises = Arrays.asList(salle.getChaises());
-        chaises.add(chaise);
-        salle.setChaises(chaises.toArray(new Chaise[chaises.size()]));
-    }
+//    public void addBureau(String nom, int idBureau){
+//        Salle salle = this.getByNom(nom);
+//        Bureau bureau = bureauDAO.getById(idBureau);
+//        List<Bureau> bureaux = Arrays.asList(salle.getBureaux());
+//        bureaux.add(bureau);
+//        salle.setBureaux(bureaux.toArray(new Bureau[bureaux.size()]));
+//    }
+//
+//    public void addChaise(String nom, int idChaise){
+//        Salle salle = this.getByNom(nom);
+//        Chaise chaise = chaiseDAO.getById(idChaise);
+//        List<Chaise> chaises = Arrays.asList(salle.getChaises());
+//        chaises.add(chaise);
+//        salle.setChaises(chaises.toArray(new Chaise[chaises.size()]));
+//    }
 }
 

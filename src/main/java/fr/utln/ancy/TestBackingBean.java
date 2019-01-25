@@ -30,9 +30,8 @@ public class TestBackingBean {
         return "bureaux";
     }
 
-    public String bureauDelete(){
+    public void bureauDelete(long id){
         bureauTauxEtat.deleteBureau(id);
-        return "bureaux";
     }
 
     public String updateBureau(){
@@ -52,9 +51,8 @@ public class TestBackingBean {
         return "chaises";
     }
 
-    public String chaiseDelete(){
+    public void chaiseDelete(long id){
         chaiseTauxEtat.deleteChaise(id);
-        return "chaises";
     }
 
     public String updateChaise(){

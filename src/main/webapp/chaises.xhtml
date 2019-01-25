@@ -9,21 +9,20 @@
 
         <h:form>
             <p:panelGrid columns="1" columnClasses="Chaise">
-                <p:dataList value="#{testBackingBean.chaiseGetAll()}" var="chaise">
+                <p:dataList id="liste" value="#{testBackingBean.chaiseGetAll()}" var="chaise">
                     <f:facet name="header">
                         Chaises
                     </f:facet>
                     Id: #{chaise.chaiseId}, Matériel: #{chaise.material}, Bon Etat: #{chaise.bonEtat}
                     <c:set var="fid" value="#{chaise.chaiseId}"/>
                     <p:commandButton ajax="false" value="update" action="#{testBackingBean.update(fid ,'updateChaise')}"/>
+                    <p:commandButton update="liste" value="delete" action="#{testBackingBean.chaiseDelete(fid)}"/>
                 </p:dataList>
             </p:panelGrid>
             <br/>
             <p:commandButton ajax="false" value="Find By Id" action="chaiseFindId.jsf?faces-redirect=true"/>
             <br/>
             <p:commandButton ajax="false" value="Add Chaise" action="createChaise.jsf?faces-redirect=true"/>
-            <br/>
-            <p:commandButton ajax="false" value="Delete Chaise" action="deleteChaise.jsf?faces-redirect=true"/>
         </h:form>
 
 
