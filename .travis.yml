@@ -1,0 +1,45 @@
+language: bash
+sudo: required
+cache:
+  directories:
+  - "$HOME/.m2/repository"
+  - "$HOME/.sonar/cache"
+before_install:
+- |
+  if [[ "${TRAVIS_COMMIT_MESSAGE}" == "[gitflow]"* ]] && [[ "${TRAVIS_BRANCH}" != v[0-9]* ]]; then
+    travis_terminate 0
+  fi
+before_script:
+- cp .travis.settings.xml $HOME/.m2/settings.xml
+script:
+- |
+  if [[ "${TRAVIS_BRANCH}" == release-* ]]; then
+    QUALIFIER=-release-${TRAVIS_BUILD_NUMBER}
+  elif [[ "${TRAVIS_BRANCH}" == "development" ]]; then
+    QUALIFIER=-dev-${TRAVIS_BUILD_NUMBER}
+  elif [[ "${TRAVIS_BRANCH}" == "master" ]]; then
+    QUALIFIER=""
+  else
+    QUALIFIER=-${TRAVIS_BRANCH}-${TRAVIS_BUILD_NUMBER}
+  fi && ./.travis.scripts/mvn.sh build-helper:parse-version versions:set -DgenerateBackupPoms=false -DnewVersion='${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}'${QUALIFIER}
+- "./.travis.scripts/mvn.sh -Dmaven.site.skip=true clean verify -B -e -V"
+after_success:
+- |
+  if [[ "${TRAVIS_BRANCH}" == "master" ]]; then
+    ./.travis.scripts/mvn.sh -P github-site site  fi
+deploy:
+  provider: script
+  script: "./.travis.scripts/mvn.sh -Dmaven.site.skip=true -P stage-devel-bintray deploy"
+  skip_cleanup: true
+  on:
+    all_branches: true
+branches:
+  except:
+  - gh-pages
+  - master
+notifications:
+  slack:
+    secure: LwOxHUa84QMZJuN5YPP2WpcY2MOh8URswpLhUa6n9+Y6fvSDWF4+lTIJycg/pKK135lnTsVlAtD0J+n2yL7Ht6vLgzwqmehPCuPf2rsPEIx4k3uZox1LsHa51F2gOCqLwda3Ab8OxOwEjnN0xppQltekmte3rbioTjnGJKDZSiORr/YUx/c53F7sJuolTj5V15Pf2mjjC9wVp5DMd074DJp2Uv+ArOyRoijj/zKLtqu7hASzreZMOe8yn+iNHU9kVONaJotpKowhZrjR7Jn4GlONregV+HGih50VK7HqCW55fBB/sUTPljFSGteE3vj5zxPdWhDIbYqw4rSLqEHuQVL83Ks/rw/zn0S1SZYHohigpIyiYnVRL9ErUskRTCYBOm4Zm4xW8mjemic2RZJVQgEraDIDaIs9v8/VS3TtY+S6+u621VLOnWtAfGJfoMO14XMn1gZ7r1WrtH3dEnQHLtWLbsbd6oYnEtbtY0SZXOB1Dll12JSxorcYEHmHK0yWkoPk4EvpidZnMUsth85VTsBtsv1IhF4TBONWBLsmjkjgq94lLXvEDgliWTxJUVEMYLXSGqMRWST6Z20sclRcnQpqzHgclfyEfzXZYlw/UrA7I0REjptV1CK46phftaQiTraOdMxR+lGceJfqvgvPEr7GhbFYghjyV2CQUr2mV1o=
+env:
+  global:
+    secure: wqflsMZSCrDp/XyFVPK4v08qvMFmObC3k8SQ0NdFTvXbJ2txarkqctjLASHC1SU+CO8UpHPNLbIC8lWe03CaP6wpJ3c0zwe5X55fCZ5qYIYc7EcK6ac47j92MvvSwVI6ro5wAwWglsHICzS5falqX9xcqr4kSQhIvIKc+TktegOihkH1FZE7gbLx1Fejt/qGg5i8Pg1uwb5KJZADab6nKspS7I4zYiBCieeLI7kON/L115ZNjs1GqumNZ3Xr5MXnsQjuTxKbgaLaGqkd9XCjw9Br50mDBKWk3jIBJM89zlvzA92fuBa4dyH4WBY/8pZTY5xmpQcynu1dIonzKLTR0ilGaCvgVU1IKjJdXL9PnNvBjGMr7fRbmHIqxFI+1OBJ1Fx8ayjFURYqGmqzw2NY79y9fJgdq8JLYLdBte/FXhFpskmRf+qd1TIT9QQ7jKDBglDBXTDGIyfzwpCEXa6hNiYNKrGqFbolYyx3XByDuKCCPyDGsmWpMWoVUlnKjNsEJCrKFYbNJoF+bpvWQFMcP2e3OxO8j3CDTk6fF0opskBKP8hxKMPzuxoUpsJDqOwWs5t3nvMT4xssYm2JvyFRw4S3joZD6xsiekhLzDN37fJOYd+s77yahDF25xdYr7NGtkJOt9IDKiGkKq1MlTCfq9DUh99CYpgcPIVfzNdBjTE=

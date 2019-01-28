@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="templates/main_template.xhtml">
+
+    <ui:define name="bodyContent">
+
+        <h:form>
+            <p:outputLabel>
+                <f:facet name="header">
+                    Bureaux bon etat
+                </f:facet>
+                Taux de bureaux en bon état: #{testBackingBean.bureauTauxBonEtat()}%
+            </p:outputLabel>
+            <br/>
+            <p:outputLabel>
+                <f:facet name="header">
+                    Chaise bon etat
+                </f:facet>
+                Taux de chaises en bon état: #{testBackingBean.chaiseTauxBonEtat()}%
+            </p:outputLabel>
+
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

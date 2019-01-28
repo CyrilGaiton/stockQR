@@ -1,0 +1,53 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+			      https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <servers>
+        <server> <id>bintray-cyril-MavenRep</id>
+            <username>cyril</username>
+            <password>${BINTRAY_API_KEY}</password>
+        </server>
+    </servers>
+
+    <profiles>
+        <!--<profile>-->
+            <!--<id>sonar</id>-->
+            <!--<activation>-->
+                <!--<activeByDefault>true</activeByDefault>-->
+            <!--</activation>-->
+            <!--<properties>-->
+                <!--<sonar.host.url>https://sonar.lsis.univ-tln.fr</sonar.host.url>-->
+                <!--&lt;!&ndash; generate a token in https://sonar.lsis.univ-tln.fr/account/security &ndash;&gt;-->
+                <!--<sonar.login>${env.SONAR_TOKEN}</sonar.login>-->
+            <!--</properties>-->
+        <!--</profile>-->
+
+        <profile>
+            <repositories>
+                <repository>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <id>bintray-cyril-stockQR</id>
+                    <name>bintray</name>
+                    <url>https://dl.bintray.com/cyril/stockQR</url>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <id>bintray-cyril-stockQR</id>
+                    <name>bintray-plugins</name>
+                    <url>https://dl.bintray.com/cyril/stockQR</url>
+                </pluginRepository>
+            </pluginRepositories>
+            <id>bintray</id>
+        </profile>
+
+    </profiles>
+    <activeProfiles>
+        <activeProfile>bintray</activeProfile>
+    </activeProfiles>
+</settings>

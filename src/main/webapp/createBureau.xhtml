@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="templates/main_template.xhtml">
+
+    <ui:define name="bodyContent">
+
+        <h:form>
+            <p:panelGrid columns="2" columnClasses="label,  values" style="margin-bottom: auto">
+                <p:outputLabel for="list" value="Materiel: " />
+                <p:selectOneRadio required="true" id="list" value="#{testBackingBean.materialType}" var="type">
+                    <f:selectItem itemLabel="Bois" itemValue= "BOIS" />
+                    <f:selectItem itemLabel="Acier" itemValue="ACIER" />
+                    <f:selectItem itemLabel="Plastique" itemValue="PLASTIQUE" />
+                </p:selectOneRadio>
+                <p:outputLabel for="etat" value="Bon Etat: "/>
+                <p:selectBooleanButton id="etat" value="#{testBackingBean.bonEtat}" onLabel="Yes" offLabel="No" style="width: 60px"/>
+            </p:panelGrid>
+
+            <p:commandButton ajax="false" value="Create" action="#{testBackingBean.bureauCreate()}"/>
+
+        </h:form>
+
+
+    </ui:define>
+
+
+</ui:composition>
