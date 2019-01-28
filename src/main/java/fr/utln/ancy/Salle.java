@@ -20,11 +20,11 @@ public class Salle implements Serializable {
     @CheckSalleNom
     private String nom;
 
-    @ManyToOne
-    private Bureau[] bureaux;
-
-    @ManyToOne
-    private Chaise[] chaises;
+//    @ManyToOne
+//    private Bureau[] bureaux;
+//
+//    @ManyToOne
+//    private Chaise[] chaises;
 
     public Salle(){}
 
@@ -33,21 +33,21 @@ public class Salle implements Serializable {
         return idSalle;
     }
 
-    public Bureau[] getBureaux() {
-        return bureaux;
-    }
-
-    public void setBureaux(Bureau[] bureaux) {
-        this.bureaux = bureaux;
-    }
-
-    public Chaise[] getChaises() {
-        return chaises;
-    }
-
-    public void setChaises(Chaise[] chaises) {
-        this.chaises = chaises;
-    }
+//    public Bureau[] getBureaux() {
+//        return bureaux;
+//    }
+//
+//    public void setBureaux(Bureau[] bureaux) {
+//        this.bureaux = bureaux;
+//    }
+//
+//    public Chaise[] getChaises() {
+//        return chaises;
+//    }
+//
+//    public void setChaises(Chaise[] chaises) {
+//        this.chaises = chaises;
+//    }
 
     public String getNom() {
         return nom;

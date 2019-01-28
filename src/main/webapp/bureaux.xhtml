@@ -2,26 +2,27 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
                 template="templates/main_template.xhtml">
 
     <ui:define name="bodyContent">
 
         <h:form>
             <p:panelGrid columns="1" columnClasses="Bureau">
-                <p:dataList value="#{testBackingBean.bureauGetAll()}" var="bureau">
+                <p:dataList id="liste" value="#{testBackingBean.bureauGetAll()}" var="bureau">
                     <f:facet name="header">
                         Bureaux
                     </f:facet>
                     Id: #{bureau.bureauId}, Matériel: #{bureau.material}, Bon Etat: #{bureau.bonEtat}
+                    <c:set var="fid" value="#{bureau.bureauId}"/>
+                    <p:commandButton ajax="false" value="update" action="#{testBackingBean.update(fid, 'updateBureau')}"/>
+                    <p:commandButton update="liste" value="delete" action="#{testBackingBean.bureauDelete(fid)}"/>
                 </p:dataList>
             </p:panelGrid>
             <br/>
             <p:commandButton ajax="false" value="Find By Id" action="bureauFindId.jsf?faces-redirect=true"/>
             <br/>
             <p:commandButton ajax="false" value="Add Bureau" action="createBureau.jsf?faces-redirect=true"/>
-            <br/>
-            <p:commandButton ajax="false" value="Delete Bureau" action="deleteBureau.jsf?faces-redirect=true"/>
         </h:form>
 
 

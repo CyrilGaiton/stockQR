@@ -33,4 +33,8 @@ public class BureauTauxEtat {
     public void deleteBureau(long id){
         bureauDAO.deleteBureau(id);
     }
+
+    public void updateBureau(long id, MaterialType material, boolean bonEtat){
+        bureauDAO.updateBureau(id, material, bonEtat);
+    }
 }

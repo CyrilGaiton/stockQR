@@ -30,8 +30,12 @@ public class TestBackingBean {
         return "bureaux";
     }
 
-    public String bureauDelete(){
+    public void bureauDelete(long id){
         bureauTauxEtat.deleteBureau(id);
+    }
+
+    public String updateBureau(){
+        bureauTauxEtat.updateBureau(id, materialType, bonEtat);
         return "bureaux";
     }
 
@@ -47,8 +51,12 @@ public class TestBackingBean {
         return "chaises";
     }
 
-    public String chaiseDelete(){
+    public void chaiseDelete(long id){
         chaiseTauxEtat.deleteChaise(id);
+    }
+
+    public String updateChaise(){
+        chaiseTauxEtat.updateChaise(id, materialType, bonEtat);
         return "chaises";
     }
 
@@ -76,5 +84,10 @@ public class TestBackingBean {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String update(long id, String classe){
+        setId(id);
+        return classe;
     }
 }

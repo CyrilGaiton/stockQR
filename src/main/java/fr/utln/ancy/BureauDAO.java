@@ -32,4 +32,11 @@ public class BureauDAO {
             em.remove(bureau);
         }
     }
+
+    public void updateBureau(long id, MaterialType material, boolean bonEtat){
+        Bureau bureau = getById(id);
+        bureau.setMaterial(material);
+        bureau.setBonEtat(bonEtat);
+        em.merge(bureau);
+    }
 }

@@ -32,4 +32,8 @@ public class ChaiseTauxEtat {
     public void deleteChaise(long id){
         chaiseDAO.deleteChaise(id);
     }
+
+    public void updateChaise(long id, MaterialType material, boolean bonEtat){
+        chaiseDAO.updateChaise(id, material, bonEtat);
+    }
 }
