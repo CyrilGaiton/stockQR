@@ -3,7 +3,7 @@
 
     <groupId>fr.utln.ancy</groupId>
     <artifactId>stockQR</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>stockQR</name>
@@ -148,7 +148,7 @@
                     <squash>true</squash>
 
                     <scmCommentPrefix>[gitflow]</scmCommentPrefix>
-                    
+
 
                     <flowInitContext>
                         <masterBranchName>master</masterBranchName>
@@ -162,7 +162,7 @@
             </plugin>
         </plugins>
     </build>
-    
+
     <distributionManagement>
         <repository>
             <id>bintray-cyril-MavenRep</id>
