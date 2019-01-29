@@ -1,11 +1,10 @@
-package fr.utln.ancy;
+package fr.utln.ancy.DAO;
+
+import fr.utln.ancy.Beans.Salle;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SalleDAO {

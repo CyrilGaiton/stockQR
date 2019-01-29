@@ -1,4 +1,7 @@
-package fr.utln.ancy;
+package fr.utln.ancy.DAO;
+
+import fr.utln.ancy.Beans.Chaise;
+import fr.utln.ancy.MaterialType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

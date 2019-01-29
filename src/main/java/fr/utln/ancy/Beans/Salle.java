@@ -1,4 +1,6 @@
-package fr.utln.ancy;
+package fr.utln.ancy.Beans;
+
+import fr.utln.ancy.CheckSalleNom;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;

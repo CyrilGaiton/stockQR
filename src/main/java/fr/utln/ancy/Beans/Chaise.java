@@ -1,18 +1,19 @@
-package fr.utln.ancy;
+package fr.utln.ancy.Beans;
+
+import fr.utln.ancy.MaterialType;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 
 @Entity
-public class Bureau implements Serializable{
+public class Chaise {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     @Min(0)
-    private long bureauId;
+    private long chaiseId;
 
     @Enumerated(EnumType.STRING)
     private MaterialType material;
@@ -20,7 +21,7 @@ public class Bureau implements Serializable{
     @NotNull
     private boolean bonEtat;
 
-    public Bureau(){}
+    public Chaise(){}
 
     public MaterialType getMaterial() {
         return material;
@@ -30,9 +31,7 @@ public class Bureau implements Serializable{
         this.material = material;
     }
 
-    public long getBureauId() {
-        return bureauId;
-    }
+    public long getChaiseId(){ return chaiseId; }
 
     public boolean isBonEtat() {
         return bonEtat;

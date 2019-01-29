@@ -1,5 +1,11 @@
-package fr.utln.ancy;
+package fr.utln.ancy.BackingBean;
 
+
+import fr.utln.ancy.Beans.Bureau;
+import fr.utln.ancy.Beans.Chaise;
+import fr.utln.ancy.EJB.BureauTauxEtat;
+import fr.utln.ancy.EJB.ChaiseTauxEtat;
+import fr.utln.ancy.MaterialType;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;

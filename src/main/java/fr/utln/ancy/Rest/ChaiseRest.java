@@ -1,4 +1,7 @@
-package fr.utln.ancy;
+package fr.utln.ancy.Rest;
+
+import fr.utln.ancy.Beans.Chaise;
+import fr.utln.ancy.DAO.ChaiseDAO;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
