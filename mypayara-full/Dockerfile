@@ -1,8 +1,11 @@
-FROM maven:3.5.2-jdk-8-alpine as builder
+FROM maven:3.6.0-jdk-8-alpine as builder
 
 RUN mkdir -p /myapp
 
 WORKDIR /myapp
+
+RUN wget https://jdbc.postgresql.org/download/postgresql-42.2.5.jar \
+            -O database-connector.jar
 
 COPY pom.xml .
 COPY createDDL_ddlGeneration.sql .
@@ -17,7 +20,7 @@ FROM payara/server-full:5.183
 
 ENV PATH="/opt/payara5/bin/:${PATH}"
 
-COPY --from=build /myapp/database-connector.jar /opt/payara5/glassfish/domains/domain1/lib/
+COPY --from=builder /myapp/database-connector.jar /opt/payara5/glassfish/domains/domain1/lib/
 
 RUN asadmin start-domain && \
     asadmin --user admin \
@@ -35,19 +38,6 @@ RUN asadmin start-domain && \
 			       create-jdbc-resource --connectionpoolid postgres-pool jdbc/postgres-pool && \
     asadmin stop-domain
 
-COPY --from=build /myapp/target/*.war $DEPLOY_DIR
-
-FROM payara/server-full:163
-
-RUN wget https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar \
-         -O /opt/payara41/glassfish/domains/domain1/lib/postgresql.jar && \
-    /opt/payara41/bin/asadmin start-domain && \
-    /opt/payara41/bin/asadmin --user admin \
-    			      --passwordfile=/opt/pwdfile \
-    			      set-hazelcast-configuration --enabled=true --dynamic=true
-
-COPY --from=builder /home/project/target/*.war $DEPLOY_DIR
-
+COPY --from=builder /myapp/target/*.war $DEPLOY_DIR
+COPY mypayara-full/com.txt /opt/payara5/
 RUN ls $DEPLOY_DIR
-RUN echo $DEPLOY_DIR
-

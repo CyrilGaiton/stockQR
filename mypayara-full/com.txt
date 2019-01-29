@@ -1,0 +1,1 @@
+deploy /opt/payara5/deployments/stockQR-1.1-SNAPSHOT.war
