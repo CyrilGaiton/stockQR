@@ -8,9 +8,10 @@ services:
             - "8080:8080"
             - "4848:4848"
         entrypoint:
-            - /opt/payara41/bin/asadmin
+            - asadmin
             - start-domain
             - -v
+            - --postbootcommandfile=com.txt
         volumes:
             - ./data/payara:/opt/payara41/glassfish/domains/domain1/autodeploy
         depends_on:
